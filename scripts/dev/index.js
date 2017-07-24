@@ -19,7 +19,7 @@ async function startWebpackServer(webpackConfig) {
   function listen(port, url) {
     return new Promise((resolve, reject) => {
       app.listen(port, () => {
-        console.warn(`listen on `.green + url.underline.green);
+        console.warn(`listen on `.cyan + url.underline.cyan);
         open(url);
         resolve();
       });
