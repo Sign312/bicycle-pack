@@ -19,7 +19,6 @@ function webpackBuild(webpackConfig) {
 async function build() {
   require("./tools/rmDist");
   let webpackConfig = require("../webpack/webpack.config.prod");
-  delete webpackConfig.devtool;
   await webpackBuild(webpackConfig);
 }
 
