@@ -89,13 +89,13 @@ module.exports = {
     //     warnings: false
     //   }
     // }),
-    new ExtractTextPlugin(`${entryName}.min.css`),
+    new ExtractTextPlugin(`${entryName}.min.css`)
     // new OptimizeCssAssetsPlugin(),
-    new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
-    })
+    // new webpack.DefinePlugin({
+    //   "process.env": {
+    //     NODE_ENV: JSON.stringify("production")
+    //   }
+    // })
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "vendor",
     //   filename: "js/vendor.bundle.js"
