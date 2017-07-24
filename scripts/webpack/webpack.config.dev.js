@@ -81,11 +81,21 @@ module.exports = {
       filename: "index.html",
       template: `./src/entry/${entryName}/index.html`
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   output: {
+    //     comments: false // remove all comments
+    //   },
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new ExtractTextPlugin(`${entryName}.min.css`),
-    new OptimizeCssAssetsPlugin()
+    // new OptimizeCssAssetsPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    })
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "vendor",
     //   filename: "js/vendor.bundle.js"

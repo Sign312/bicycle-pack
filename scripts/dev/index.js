@@ -33,7 +33,7 @@ async function startWebpackServer(webpackConfig) {
 }
 
 async function dev() {
-  let webpackConfig = require("../webpack/webpack.config");
+  let webpackConfig = require("../webpack/webpack.config.dev");
   await startWebpackServer(webpackConfig);
 }
 
