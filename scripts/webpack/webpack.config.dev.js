@@ -10,7 +10,6 @@ module.exports = {
   devtool: "source-map",
   entry: {
     app: path.join(process.cwd(), `./src/entry/${entryName}/index.js`)
-    // vender: ["react", "react-dom"]
   },
   module: {
     rules: [
@@ -73,7 +72,6 @@ module.exports = {
   output: {
     path: path.join(process.cwd(), `./dist/${entryName}/`),
     filename: `js/${entryName}.min.js`
-    // publicPath: "/"
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -81,24 +79,6 @@ module.exports = {
       filename: "index.html",
       template: `./src/entry/${entryName}/index.html`
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   output: {
-    //     comments: false // remove all comments
-    //   },
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
     new ExtractTextPlugin(`${entryName}.min.css`)
-    // new OptimizeCssAssetsPlugin(),
-    // new webpack.DefinePlugin({
-    //   "process.env": {
-    //     NODE_ENV: JSON.stringify("production")
-    //   }
-    // })
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: "vendor",
-    //   filename: "js/vendor.bundle.js"
-    // })
   ]
 };

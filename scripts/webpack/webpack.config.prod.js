@@ -7,10 +7,9 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 let entryName = process.wpOption.entryName || "index";
 
 module.exports = {
-  // devtool: "source-map",
   entry: {
     app: path.join(process.cwd(), `./src/entry/${entryName}/index.js`)
-    // vender: ["react", "react-dom"]
+    // vendor: ["react", "react-dom", "babel-polyfill"]
   },
   module: {
     rules: [
@@ -73,29 +72,27 @@ module.exports = {
   output: {
     path: path.join(process.cwd(), `./dist/${entryName}/`),
     filename: `js/${entryName}.min.js`
-    // publicPath: "/"
   },
   plugins: [
     new HtmlWebpackPlugin({
-      hot: true,
       filename: "index.html",
       template: `./src/entry/${entryName}/index.html`
     }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
-        comments: false // remove all comments
+        comments: false
       },
       compress: {
         warnings: false
       }
     }),
     new ExtractTextPlugin(`${entryName}.min.css`),
-    new OptimizeCssAssetsPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
       }
-    })
+    }),
+    new OptimizeCssAssetsPlugin()
     // new webpack.optimize.CommonsChunkPlugin({
     //   name: "vendor",
     //   filename: "js/vendor.bundle.js"
