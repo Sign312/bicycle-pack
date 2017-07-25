@@ -9,7 +9,7 @@ let entryName = process.wpOption.entryName || "index";
 module.exports = {
   entry: {
     app: path.join(process.cwd(), `./src/entry/${entryName}/index.js`)
-    // vendor: ["react", "react-dom", "babel-polyfill"]
+    // vendor: ["react", "react-dom", "babel-polyfill", "redux", "redux-saga"]
   },
   module: {
     rules: [
