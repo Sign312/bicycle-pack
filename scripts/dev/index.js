@@ -8,7 +8,11 @@ process.wpOption.env = "dev";
 async function startWebpackServer(webpackConfig) {
   let express = require("express");
   let compiler = webpack(webpackConfig);
-  let devMiddleware = require("webpack-dev-middleware")(compiler);
+  let devMiddleware = require("webpack-dev-middleware")(compiler, {
+    stats: {
+      colors: true
+    }
+  });
   let app = express();
   app.use(devMiddleware);
   let port = config.port;
@@ -19,7 +23,8 @@ async function startWebpackServer(webpackConfig) {
   function listen(port, url) {
     return new Promise((resolve, reject) => {
       app.listen(port, () => {
-        console.warn(`listen on `.cyan + url.underline.cyan);
+        let listenTip = `listen on `.cyan + url.underline.cyan;
+        console.warn(listenTip);
         open(url);
         resolve();
       });
