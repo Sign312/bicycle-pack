@@ -71,7 +71,8 @@ module.exports = {
   },
   output: {
     path: path.join(process.cwd(), `./dist/${entryName}/`),
-    filename: `js/${entryName}.min.js`
+    filename: `js/${entryName}.min.js`,
+    chunkFilename: "js/[name]-[id].js"
   },
   plugins: [
     new HtmlWebpackPlugin({
