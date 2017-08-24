@@ -8,7 +8,7 @@ let entryName = process.wpOption.entryName || "index";
 
 module.exports = {
   entry: {
-    app: path.join(process.cwd(), `./src/entry/${entryName}/index.js`)
+    app: path.join(process.cwd(), `./src/view/${entryName}/index.js`)
     // vendor: ["react", "react-dom", "babel-polyfill", "redux", "redux-saga"]
   },
   module: {
@@ -72,12 +72,12 @@ module.exports = {
   output: {
     path: path.join(process.cwd(), `./dist/${entryName}/`),
     filename: `js/${entryName}.min.js`,
-    chunkFilename: "js/[name]-[id].js"
+    chunkFilename: "js/[name]-[id].min.js"
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: `./src/entry/${entryName}/index.html`
+      template: `./src/view/${entryName}/index.html`
     }),
     new webpack.optimize.UglifyJsPlugin({
       output: {

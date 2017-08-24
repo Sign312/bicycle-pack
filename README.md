@@ -24,14 +24,14 @@ bicycle
 
 //create ok !
 
-yarn && yarn run dev/build index/[your entry dir name]
+yarn && yarn run dev/build index/[your entry dir name under "view"]
 ```
 
 ## 开发目录结构(directory structure)
 ```
 src
 ├── ... 可共用资源(common js/css/img/font)
-└── entry  多入口开发目录(entrys)
+└── view  多入口开发目录
     ├── index  index入口
     │   ├── index.html
     │   └── index.js
@@ -42,7 +42,7 @@ src
 
 ## 注意(notice):
 ```
-多入口开发时，入口名称由entry下的文件夹名称确定
+多入口开发时，入口名称由view下的文件夹名称确定
 入口文件必须为index.html
 入口js必须为index.js
 ```
