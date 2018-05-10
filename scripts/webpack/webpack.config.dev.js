@@ -9,7 +9,7 @@ let entryName = process.wpOption.entryName || "index";
 module.exports = {
   devtool: "source-map",
   entry: {
-    app: path.join(process.cwd(), `./src/view/${entryName}/index.js`)
+    index: path.join(process.cwd(), `./src/view/${entryName}/index.js`)
   },
   module: {
     rules: [
@@ -71,7 +71,7 @@ module.exports = {
   },
   output: {
     path: path.join(process.cwd(), `./dist/${entryName}/`),
-    filename: `js/${entryName}.min.js`,
+    filename: `js/[name].min.js`,
     chunkFilename: "js/[name]-[id].min.js"
   },
   plugins: [
